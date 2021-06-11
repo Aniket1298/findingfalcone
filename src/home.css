@@ -1,0 +1,12 @@
+.destinations{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: auto;
+    padding-left: 20%;
+    padding-right: 20%;
+}
+.home{
+    text-align: center;
+    margin: auto;
+}

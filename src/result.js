@@ -23,7 +23,7 @@ export default class Result extends React.Component{
             </h3>
             </div>
             }
-            <Button type="primary" onClick={this.props.startagain}>
+            <Button type="primary" onClick={ this.props.reset}>
                 Start Again
             </Button>
             

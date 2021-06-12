@@ -27,15 +27,7 @@ class Destination extends React.Component{
         this.setState({radiokey:e.target.value})
         this.props.addVehicle(this.props.index,e.target.value)
     }
-     
-    reset(){
-        this.setState({
-            dropkey:null,
-            radiokey:null,
-            index:this.props.index
-        })
-        
-    };
+    
     render(){
         var index = this.state.index
         var i=0;
@@ -61,7 +53,6 @@ class Destination extends React.Component{
 export default class Home extends React.Component{
     constructor(){
         super()
-        this.child = React.createRef();
         this.state={
             finding:false,
             found:false,
@@ -90,13 +81,10 @@ export default class Home extends React.Component{
         }
         this.addVehicle=this.addVehicle.bind(this)
         this.handleDropdown=this.handleDropdown.bind(this)
-        this.set=this.set.bind(this)
+        
         this.searching=this.searching.bind(this)
-        this.startagain= this.startagain.bind(this)
     }
-    set(){
-        this.setState({reset:true})
-    }
+   
     getData(){
         this.setState({loading:true})
         fetch('https://findfalcone.herokuapp.com/planets' ,{method: "GET"}).then((response)=> response.json().then((data) => this.setState({planets:data}) ))
@@ -137,40 +125,7 @@ export default class Home extends React.Component{
         this.setState({time:time,vehicleCount:vehicleCount})
 
     }
-    startagain(){
-        window.location.reload()
-        this.setState({finding:false})
-    }
-    reset(){
-        this.child.current.reset()
-        this.setState({
-            finding:false,
-            found:false,
-            vehicles:[],
-            time:0, 
-            vehicleCount:0,
-            loading:false,
-            planets:[],
-            destination:[{
-                planet:null,
-                vehicle:null
-            },
-            {
-                planet:null,
-                vehicle:null
-            },
-            {
-                planet:null,
-                vehicle:null
-            },
-            {
-                planet:null,
-                vehicle:null
-            },
-        ]
-        })
-        this.componentDidMount()
-    }
+    
 
     handleDropdown(key,index){
         const selected = this.state.planets[key]
@@ -185,6 +140,9 @@ export default class Home extends React.Component{
         var destination=this.state.destination
         destination[index].planet=selected
         this.setState({destination:destination,vehicle:null})
+    }
+    reset(){
+        window.location.reload()
     }
     async searching(){
         this.setState({finding:true})
@@ -227,10 +185,10 @@ export default class Home extends React.Component{
             <h1>
                 Finding Falcone!
             </h1>
-            {this.state.finding? <Result startagain={this.startagain} reset={this.reset} found={this.state.found} time={this.state.found} />:<>
+            {this.state.finding? <Result  reset={this.reset} found={this.state.found} time={this.state.time} />:<>
             <div className="destinations">
 
-                {[0,1,2,3].map((index)=> <Destination ref={this.child} key={index} set ={this.set} reset={this.state.reset} addVehicle={this.addVehicle} handleDropdown={this.handleDropdown} index = {index} planets={this.state.planets} vehicles={this.state.vehicles} destination={this.state.destination}/>
+                {[0,1,2,3].map((index)=> <Destination  key={index} set ={this.set} reset={this.state.reset} addVehicle={this.addVehicle} handleDropdown={this.handleDropdown} index = {index} planets={this.state.planets} vehicles={this.state.vehicles} destination={this.state.destination}/>
                 )}
                 <h2>
                     Time Taken: {this.state.time}

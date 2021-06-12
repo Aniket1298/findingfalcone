@@ -1,9 +1,8 @@
 import React from 'react'
-import { Menu, Dropdown, Button, message, Space, Tooltip ,Radio, Input,} from 'antd'
+import { Menu,Divider, Dropdown, Button, message, Space, Tooltip ,Radio, Input,} from 'antd'
 import {CaretDownOutlined} from '@ant-design/icons'
 import './home.css'
-import { triggerFocus } from 'antd/lib/input/Input'
-
+import Result from './result'
 class Destination extends React.Component{
     constructor(props){
         super(props)
@@ -64,7 +63,8 @@ export default class Home extends React.Component{
         super()
         this.child = React.createRef();
         this.state={
-            
+            finding:false,
+            found:false,
             vehicles:[],
             time:0, 
             vehicleCount:0,
@@ -91,6 +91,8 @@ export default class Home extends React.Component{
         this.addVehicle=this.addVehicle.bind(this)
         this.handleDropdown=this.handleDropdown.bind(this)
         this.set=this.set.bind(this)
+        this.searching=this.searching.bind(this)
+        this.startagain= this.startagain.bind(this)
     }
     set(){
         this.setState({reset:true})
@@ -135,11 +137,15 @@ export default class Home extends React.Component{
         this.setState({time:time,vehicleCount:vehicleCount})
 
     }
+    startagain(){
+        window.location.reload()
+        this.setState({finding:false})
+    }
     reset(){
-        
         this.child.current.reset()
         this.setState({
-            
+            finding:false,
+            found:false,
             vehicles:[],
             time:0, 
             vehicleCount:0,
@@ -180,24 +186,50 @@ export default class Home extends React.Component{
         destination[index].planet=selected
         this.setState({destination:destination,vehicle:null})
     }
-
+    async searching(){
+        this.setState({finding:true})
+        var token =   null
+        var planet_names=[]
+        var vehicle_names=[]
+        this.state.destination.forEach((destination)=>{
+            planet_names.push(destination.planet.name)
+            vehicle_names.push(destination.vehicle.name)
+        })
+        token =await  fetch('https://findfalcone.herokuapp.com/token' ,{method: "POST",headers : { 
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+           }}).then((response)=> response.json().then((data) => {token=data.token;return data.token} ))
+        console.log("Token",token)
+        fetch('https://findfalcone.herokuapp.com/find' ,{method: "POST",headers : { 
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+           }, body:JSON.stringify({token:token,planet_names:planet_names,vehicle_names:vehicle_names})}).then((response)=> response.json().then((data) => {if(data.status==="success"){this.setState({found:data.planet_name})}} ))
+    }
     render(){
         return(
             <>
-            {this.state.loading? <h2>Loading...</h2>:
             <div className="home">
                 <div className="header">
                     <a onClick={()=>this.reset()}>
-                        <h4>Reset</h4>
+                        <h3>Reset</h3>
                     </a>
-                    <a>
+                    &nbsp;
+                    &nbsp;
+                    &nbsp;
+                    <Divider type="vertical"/>
+                    <a href="https://www.geektrust.in/">
+                        <h3>
+                            GeekTrust Home
+                        </h3>
                     </a>
                 </div>
+            <div>
             <h1>
                 Finding Falcone!
             </h1>
-            
+            {this.state.finding? <Result startagain={this.startagain} reset={this.reset} found={this.state.found} time={this.state.found} />:<>
             <div className="destinations">
+
                 {[0,1,2,3].map((index)=> <Destination ref={this.child} key={index} set ={this.set} reset={this.state.reset} addVehicle={this.addVehicle} handleDropdown={this.handleDropdown} index = {index} planets={this.state.planets} vehicles={this.state.vehicles} destination={this.state.destination}/>
                 )}
                 <h2>
@@ -206,13 +238,16 @@ export default class Home extends React.Component{
 
             </div>
             <div className="finding">
-            {this.state.vehicleCount===this.state.destination.length?<Button type="primary">Find Falcone!</Button>:<Button type="primary" disabled>
+            {this.state.vehicleCount===this.state.destination.length?<Button type="primary" onClick={this.searching}>Find Falcone!</Button>:<Button type="primary" disabled>
       Find Falcone!
     </Button>}
             </div>
-            
+            </>}
         </div>
-            }
+            </div>
+            <div className="footer">
+                <h3>Coding Problem - www.geektrust.in/finding-falcone</h3>
+            </div>
             </>
             
         )

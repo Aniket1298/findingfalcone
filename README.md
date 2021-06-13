@@ -1,70 +1,70 @@
-# Getting Started with Create React App
+# Geek Trust - Frontend Challenge Space - Finding Falcone Solution
+This is a solution to the [Frontend Challenge Space - Finding Falcone on Geek Trust](https://www.geektrust.in/coding-problem/frontend/space).  
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Table of contents
 
-## Available Scripts
+- [Geek Trust - Frontend Challenge Space - Finding Falcone Solution](#geek-trust---frontend-challenge-space---finding-falcone-solution)
+  - [Table of contents](#table-of-contents)
+  - [Overview](#overview)
+  - [The challenge](#the-challenge)
+  - [Screenshots](#screenshots)
+    - [Home Page](#home-page)
+    - [Success Page](#success-page)
+    - [Failure Page](#failure-page)
+    - [Links](#links)
+  - [My process](#my-process)
+    - [Built with](#built-with)
+  - [Author](#author)
+## Overview
+Our problem is set in the planet of Lengaburu…in the distant
+distant galaxy of Tara B. After the recent war with neighbouring
+planet Falicornia, King Shan has exiled the Queen of Falicornia
+for 15 years.
+Queen Al Falcone is now in hiding. But if King Shan can find
+her before the years are up, she will be exiled for another 15
+years….
 
-In the project directory, you can run:
+King Shan has received intelligence that Al Falcone is in hiding in one of these 6 planets - DonLon, Enchai, Jebing,
+Sapir, Lerbin & Pingasor. However he has limited resources at his disposal & can send his army to only 4 of these
+planets.
+Your coding problem is to help King Shan find Al Falcone
+## The challenge
+You need to build a UI through which King Shan can
+- select 4 planets to search (out of the total 6)
+- select which space vehicles to send to these planets
+- see how much time it will take for the vehicles to reach their targets &
+- show final result of success or failure 
 
-### `npm start`
+## Screenshots
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Home Page
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+![Screenshot](src\home.png)
 
-### `npm test`
+### Success Page
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+![Screenshot](src/success.png)
 
-### `npm run build`
+### Failure Page
+![Screenshot](src/failure.png)
+### Links
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- Solution URL: [https://github.com/Aniket1298/findingfalcone](https://github.com/Aniket1298/findingfalcone)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## My process
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Built with
 
-### `npm run eject`
+- Semantic HTML5 markup
+- CSS custom properties
+- Flexbox
+- Mobile-first workflow
+- [React](https://reactjs.org/) - JS library
+- [Antd](https://ant.design/) - A design system for enterprise-level products
+- [Prettier](https://prettier.io/) - An opinionated code formatter
+## Author
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Github - [https://github.com/Aniket1298/](https://github.com/Aniket1298/)
+- Linkedin - [https://www.linkedin.com/in/aniket1298/](https://www.linkedin.com/in/aniket1298/)
+- Twitter - [https://twitter.com/Aniket74169420](https://www.twitter.com/Aniket74169420)
+  

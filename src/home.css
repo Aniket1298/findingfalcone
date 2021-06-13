@@ -28,6 +28,9 @@
     width: 100%;
     text-align: center;
 }
+.vehicle{
+    margin-top: 10%;
+}
 @media only screen and (max-width: 500px) {
     .destinations{
         margin-top: 5%;

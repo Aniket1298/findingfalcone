@@ -14,6 +14,7 @@ This is a solution to the [Frontend Challenge Space - Finding Falcone on Geek Tr
     - [Links](#links)
   - [My process](#my-process)
     - [Built with](#built-with)
+  - [How to Run](#how-to-run)
   - [Author](#author)
 ## Overview
 Our problem is set in the planet of Lengaburu…in the distant
@@ -63,6 +64,11 @@ You need to build a UI through which King Shan can
 - [React](https://reactjs.org/) - JS library
 - [Antd](https://ant.design/) - A design system for enterprise-level products
 - [Prettier](https://prettier.io/) - An opinionated code formatter
+## How to Run
+- unzip the file or git clone https://github.com/Aniket1298/findingfalcone
+- Run the following commands
+- ## npm install
+- ## npm start
 ## Author
 
 - Github - [https://github.com/Aniket1298/](https://github.com/Aniket1298/)
